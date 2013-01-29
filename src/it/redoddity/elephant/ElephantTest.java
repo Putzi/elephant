@@ -19,8 +19,13 @@ public class ElephantTest {
 
 	@Test
 	public void testName() {
-		Elephant e = new Elephant("Dumbo");
-		assertEquals("Dumbo", e.getName());
+		assertEquals("Dumbo", new Elephant("Dumbo").getName());
+		assertEquals("Dumbo", new Elephant("DUMBO").getName());
+		assertEquals("Dumbo", new Elephant("dumbo").getName());
+	}
+
+	@Test
+	public void testNameWrongCaps() {
 	}
 	
 	@Test
@@ -61,5 +66,29 @@ public class ElephantTest {
 		e.kick();
 		assertEquals(Color.GREEN, e.getColor());
 	}
+	
+	@Test
+	public void testBecomesPinkWhenHugged() {
+		Elephant e = new Elephant("Dumbo");
+		e.hug();
+		assertEquals(Color.PINK, e.getColor());
+	}
+	
+	@Test
+	public void testBecomesGreyWhenHuggedAndKickedInASequence() {
+		Elephant e = new Elephant("Dumbo");
+		e.hug();
+		e.kick();
+		assertEquals(Color.GRAY, e.getColor());
+	}
 
+	@Test
+	public void testRemembersThings() {
+		Elephant e = new Elephant("Dumbo");
+		e.tellAbout("Raise Against The Machine");
+		e.tellAbout("Pink Floyd");
+		assertTrue(e.rememberAbout("Pink Floyd"));
+		assertFalse(!e.rememberAbout("Arcade Fire"));
+	}
+	
 }
