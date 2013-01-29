@@ -8,9 +8,11 @@ public class Elephant {
 	private Color color = Color.GRAY;
 	private Boolean feeded = false;
 	
-	private String name = "Dumbo";
+	private String name = "dumbo";
 
 	
+	
+	private String memory;
 	
 	public Elephant(String name)
 	{
@@ -28,7 +30,16 @@ public class Elephant {
 	}
 
 	public String getName() {
-		return name;
+		
+		Character first=new Character(name.charAt(0));
+		
+		String one=""+first.toUpperCase(first);
+		
+		String finalname=name.substring(1);
+        finalname=finalname.toLowerCase();
+        String correctname=one+finalname;
+		
+		return correctname;
 	}
 	
 	public String toString() {
@@ -87,13 +98,14 @@ public class Elephant {
 	}
 
 	public void tellAbout(String topic) {
-		// TODO Auto-generated method stub
-		
-
+		memory = topic;
 	}
 
 	public boolean rememberAbout(String topic) {
-		// TODO Auto-generated method stub
-		return false;
+		if(memory == topic){
+			return true;
+		} else {
+			return false;
+		}
 	}
 }
