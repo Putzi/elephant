@@ -5,7 +5,7 @@ import java.awt.Color;
 public class Elephant {
 	
 	private int weight = 100;
-	
+	private Color color = null;
 	private Boolean feeded = false;
 	
 	private String name = "Dumbo";
@@ -40,13 +40,12 @@ public class Elephant {
 	}
 
 	public void setColor(Color green) {
-		// TODO Auto-generated method stub
+		this.color = green;
 		
 	}
 
 	public Color getColor() {
-		// TODO Auto-generated method stub
-		return null;
+		return color;
 	}
 
 	public void kick() {
